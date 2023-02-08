@@ -102,7 +102,7 @@ public class CollectPractice {
                 .collect(maxBy(
                         Comparator.naturalOrder()
                 ));
-        System.out.println("Max string by natural order: " + max);
+        System.out.println("Max string by natural order: " + max.get());
 
     }
 

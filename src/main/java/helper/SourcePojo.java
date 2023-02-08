@@ -3,7 +3,7 @@ package helper;
 public class SourcePojo {
     private String name;
 
-    private double amount;
+    private Double amount;
 
 
     public SourcePojo(String name, double amount) {
