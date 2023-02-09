@@ -1,8 +1,11 @@
 package operations.terminal;
 
+import helper.BigDecimalSource;
+import helper.EURExchangeService;
 import helper.LoggerHelper;
 import helper.SourcePojo;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,6 +31,8 @@ public class ReducePractice {
         practiceToUpperCase();
         practiceSummingPojos();
         practicePojoSumming2();
+        practiceTotalComplexPojos2();
+        exceptionHandlingWhileReducing();
     }
 
     private static void practiceBasicReduce() {
@@ -90,13 +95,64 @@ public class ReducePractice {
         System.out.println("The total with potatoes filtered out is: " + total + " should be 310.0");
     }
 
-    //TODO
+
+    public static void practiceTotalComplexPojos2(){
+        LoggerHelper.logLine();
+        List<BigDecimalSource> shoppingList = Arrays.asList(
+                new BigDecimalSource("beef", BigDecimal.valueOf(6.00)),
+                new BigDecimalSource("cereal", BigDecimal.valueOf(10.50))
+        );
+        BigDecimal result = shoppingList.stream().reduce(
+                BigDecimal.ZERO,
+                (partial, next) -> partial.add(next.getAmount()),
+                BigDecimal::add
+        );
+        System.out.println("Sum of complex pojos using big decimal add: " + result + " should be 16.50");
+    }
+
     public static void exceptionHandlingWhileReducing() {
-        //https://www.baeldung.com/java-stream-reduce
+        List<BigDecimalSource> shoppingList = getBigDecimalSources();
+        BigDecimal total = shoppingList.stream()
+                .reduce(
+                        BigDecimal.ZERO,
+                        (partial, next) -> partial.add(convertToEUR(next.getAmount())),
+                        BigDecimal::add
+                );
+        System.out.println("Excpetion handling total: " + total);
+    }
+
+    private static BigDecimal convertToEUR(BigDecimal value){
+        try {
+            if(value.equals(BigDecimal.valueOf(7.00))){
+                throw new RuntimeException();
+            }
+            BigDecimal rate = EURExchangeService.rate();
+            return value.multiply(rate);
+        } catch(Exception e){
+            System.out.println("ERROR converting to EUR.");
+        }
+        return BigDecimal.ZERO;
     }
 
     //TODO
     public static void complexPojoReducing(){
-        
+        LoggerHelper.logLine();
+        List<BigDecimalSource> shoppingList = getBigDecimalSources();
+        BigDecimal total = shoppingList.stream()
+                .reduce(
+                        BigDecimal.ZERO,
+                        (partial, next) -> partial.add(next.getAmount()),
+                        BigDecimal::add
+                );
+        System.out.println("Complex pojo reducing total: " + total);
+    }
+
+    private static List<BigDecimalSource> getBigDecimalSources(){
+        List<BigDecimalSource> sources = Arrays.asList(
+                new BigDecimalSource("eggs", BigDecimal.valueOf(7.00)),
+                new BigDecimalSource("milk", BigDecimal.valueOf(1.99)),
+                new BigDecimalSource("coffee", BigDecimal.valueOf(19.99))
+        );
+        return sources;
     }
 }
