@@ -1,4 +1,4 @@
-package helper;
+package part1.helper;
 
 public class SourcePojo {
     private String name;

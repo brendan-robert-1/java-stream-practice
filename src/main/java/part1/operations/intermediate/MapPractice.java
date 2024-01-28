@@ -1,13 +1,12 @@
-package operations.intermediate;
+package part1.operations.intermediate;
 
-import helper.BigDecimalSource;
-import helper.EURExchangeService;
-import helper.LoggerHelper;
+import part1.helper.BigDecimalSource;
+import part1.helper.EURExchangeService;
+import part1.helper.LoggerHelper;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MapPractice {
 

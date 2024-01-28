@@ -1,8 +1,8 @@
-package operations;
+package part1.operations;
 
-import helper.BigDecimalSource;
-import helper.EURExchangeService;
-import helper.LoggerHelper;
+import part1.helper.BigDecimalSource;
+import part1.helper.EURExchangeService;
+import part1.helper.LoggerHelper;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

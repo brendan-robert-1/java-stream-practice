@@ -1,7 +1,7 @@
-package operations.intermediate;
+package part1.operations.intermediate;
 
-import helper.BigDecimalSource;
-import helper.LoggerHelper;
+import part1.helper.BigDecimalSource;
+import part1.helper.LoggerHelper;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

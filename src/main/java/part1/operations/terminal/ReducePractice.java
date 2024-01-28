@@ -1,19 +1,18 @@
-package operations.terminal;
+package part1.operations.terminal;
 
-import helper.BigDecimalSource;
-import helper.EURExchangeService;
-import helper.LoggerHelper;
-import helper.SourcePojo;
+import part1.helper.BigDecimalSource;
+import part1.helper.EURExchangeService;
+import part1.helper.LoggerHelper;
+import part1.helper.SourcePojo;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ReducePractice {
 
     /**
-     * The reduce terminal operations has 3 components.
+     * The reduce terminal part1.operations has 3 components.
      *
      * Identity - an element that is the initial value of the reduction operation and the default result if the stream is empty
      *
@@ -82,7 +81,7 @@ public class ReducePractice {
 
 
 
-    //Reduce is a terminal operation that is used for doing operations like summing, concatenating etc you need 3 params
+    //Reduce is a terminal operation that is used for doing part1.operations like summing, concatenating etc you need 3 params
     //an identity, an accumulator and potentially a combiner if working with pojos typically or parrallelized streams
 
     public static void practicePojoSumming2(){

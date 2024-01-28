@@ -2,7 +2,7 @@
 
 Streams don't change underlying data structure just provide a result.
 
-Streams consist of a source followed by zero or more intermediate operations piped together
+Streams consist of a source followed by zero or more intermediate part1.operations piped together
 and a terminal method to process the objects obtained from the source
 
 ### Operations on streams
@@ -14,7 +14,7 @@ These all return an instance of a stream which allows the daisy chaining
  * Sorted
  * Distinct
 
-#### Terminal operations
+#### Terminal part1.operations
 * **Collect**
   * simplest terminal operation that just gathers the result of the stream. Heavily uses the `Collectors` static methods to collect
 * **Reduce**

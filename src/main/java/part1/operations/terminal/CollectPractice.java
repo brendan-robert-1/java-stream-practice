@@ -1,12 +1,9 @@
-package operations.terminal;
-import helper.LoggerHelper;
-import helper.SourcePojo;
-import helper.StreamGenerator;
+package part1.operations.terminal;
+import part1.helper.LoggerHelper;
+import part1.helper.SourcePojo;
+import part1.helper.StreamGenerator;
 
-import javax.xml.transform.Source;
 import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.*;
@@ -17,7 +14,7 @@ import static java.util.stream.Collectors.*;
 public class CollectPractice {
 
     /**
-     * stream.collect() is a terminating operations that generate a collection of our choosing
+     * stream.collect() is a terminating part1.operations that generate a collection of our choosing
      */
     public static void practice() {
         System.out.println("Practicing collect practice.");
